@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobs</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid mt-4 px-5">
+      <h1>HackPortal Management List Job Vacancy</h1>
+      <button class="btn btn-primary mb-3">
+        <a href="/jobs/add" class="text-decoration-none text-reset">Add Job</a>
+      </button>
+      <div class="mb-3">
+        <table class="table">
+          <thead>
+            <th scope="col">Title</th>
+            <th scope="col">Department</th>
+            <th scope="col">Vacancy</th>
+            <th scope="col">Posted On</th>
+            <th scope="col">Action</th>
+          </thead>
+          <tbody>
+            <% jobs.forEach((job)=>{ %>
+            <tr>
+              <td><%= job.title %></td>
+              <td><%= job.Department.departmentName %></td>
+              <td><%= job.vacancy %></td>
+              <td><%= job.createdAt %></td>
+              <td>
+                <button class="btn btn-primary">
+                  <a
+                    href="/jobs/<%= job.id %>/detail"
+                    class="text-decoration-none text-reset"
+                    >Detail</a
+                  >
+                </button>
+              </td>
+            </tr>
+
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

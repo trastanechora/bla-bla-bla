@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Applying at HackJob Portal</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container-fluid mt-4 px-5">
+      <h1 class="mb-3">Applying at HackJob Portal</h1>
+      <div class="mb-3">
+        <% if(!job.Salary){ %>
+        <button class="btn btn-warning">
+          <a
+            href="/jobs/<%= job.id %>/detail"
+            class="text-decoration-none text-reset"
+            >Add Salary Info</a
+          >
+        </button>
+        <% } %>
+        <button class="btn btn-success">
+          <a
+            href="/jobs/<%= job.id %>/detail"
+            class="text-decoration-none text-reset"
+            >Edit Job Info</a
+          >
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="form-row mb-3">
+            <span><b>Title:</b></span> <span><%= job.title %></span>
+          </div>
+          <div class="form-row mb-3">
+            <span><b>Department:</b></span>
+            <span><%= job.Department.departmentName %></span>
+          </div>
+          <div class="form-row mb-3">
+            <span><b>Vacancy:</b></span> <span><%= job.vacancy %></span>
+          </div>
+          <div class="form-row mb-3">
+            <p><b>Requirement:</b></p>
+            <span><%= job.requirement %></span>
+          </div>
+          <div class="form-row mb-3">
+            <span><b>Base Salary:</b></span>
+            <span><%= job.Salary ? job.Salary.amount : 0 %></span>
+          </div>
+          <div class="form-row mb-3">
+            <span><b>Bonus:</b></span>
+            <span><%= job.Salary ? job.Salary.bonus : 0 %></span>
+          </div>
+          <div class="form-row mb-3">
+            <span><b>Last Update:</b></span> <span><%= job.updatedAt %></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
