@@ -35,11 +35,7 @@ fs.readdirSync(__dirname)
   });
 
 Object.keys(db).forEach((modelName) => {
-  // console.log("==============");
-  // console.log(modelName);
-  // console.log("==============");
   if (db[modelName].associate) {
-    console.log(`Masuk ${modelName}`);
     db[modelName].associate(db);
   }
 });
